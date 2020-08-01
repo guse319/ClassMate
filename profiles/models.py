@@ -94,6 +94,12 @@ class TeacherProfile(models.Model):
         default='',
     )
 
+    gradelevel = models.CharField(
+        verbose_name='gradelevel',
+        max_length=20,
+        default='',
+    )
+
     def __str__(self):
         return self.name
 
@@ -146,6 +152,12 @@ class ParentProfile(models.Model):
     name = models.CharField(
         verbose_name='name',
         max_length=100,
+        default='',
+    )
+
+    gradelevel = models.CharField(
+        verbose_name='gradelevel',
+        max_length=20,
         default='',
     )
 

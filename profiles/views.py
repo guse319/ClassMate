@@ -66,9 +66,27 @@ def create(request):
             user.accommodations = ', '.join(accommodations)
             user.save()
             return redirect('main:home')
+
     if request.user.type == 'teacher':
-        return render(request, 'profiles/create.html', {'name':name, 'schools':data.teacher_schools})
+        if request.method == 'GET':
+            return render(request, 'profiles/create.html', {'name':name, 'schools':data.teacher_schools})
+        else:
+            user = TeacherProfile.objects.get(user_id=request.user.id)
+            user.school = request.POST['school']
+            user.gradelevel = request.POST['gradelevel']
+
     if request.user.type == 'student':
-        return render(request, 'profiles/create.html', {'name':name, 'schools':data.schools})
+        if request.method == 'GET':
+            return render(request, 'profiles/create.html', {'name':name, 'schools':data.schools})
+        else:
+            user = StudentProfile.objects.get(user_id=request.user.id)
+            user.school = request.POST['school']
+            user.gradelevel = request.POST['gradelevel']
+
     if request.user.type == 'parent':
-        return render(request, 'profiles/create.html', {'name':name, 'schools':data.schools})
+        if request.method == 'GET':
+            return render(request, 'profiles/create.html', {'name':name, 'schools':data.schools})
+        else:
+            user = ParentProfile.objects.get(user_id=request.user.id)
+            user.school = request.POST['school']
+            user.gradelevel = request.POST['gradelevel']
