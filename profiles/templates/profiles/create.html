@@ -1,0 +1,58 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+
+<h1>Hi, {{ name }}. Let's talk about you.</h1>
+
+<form method="POST">
+  {% csrf_token %}
+  {% if user.type != 'tutor' %}
+  <h5>What school do you {% if user.type == 'student' %}go to?{% endif %}{% if user.type == 'teacher' %}work at?{% endif %}{% if user.type == 'parent' %}have a student at?{% endif %}</h5>
+  <select name="school">
+    {% for school in schools %}
+    <option value="{{ school }}">{{ school }}</option>
+    {% endfor %}
+  </select>
+  {% endif %}
+
+  <br>
+  <br>
+
+  {% if user.type == 'tutor' %}
+  <h5>What subjects would you like to tutor? To select multiple, use ctrl-click on windows or cmd-click on mac.</h5>
+  <select name="subjects" multiple>
+    {% for subject in subjects %}
+    <option value="{{ subject }}">{{ subject }}</option>
+    {% endfor %}
+  </select>
+
+  <h5>What is your major?</h5>
+  <p>
+    <input type="text" name="major">
+  </p>
+
+  <h5>Would you like teachers to be able to find you via searches?</h5>
+  <input type="radio" id="yes" name="teacher" value="yes">
+  <label for="yes">Yes</label><br>
+  <input type="radio" id="no" name="teacher" value="no">
+  <label for="no">No</label><br>
+
+  <h5>Would you like students and parents to be able to find you via searches?</h5>
+  <input type="radio" id="yes" name="student" value="yes">
+  <label for="yes">Yes</label><br>
+  <input type="radio" id="no" name="student" value="no">
+  <label for="no">No</label><br>
+
+  <h5>Are you able to make any of the following special accommodations?</h5>
+  <input type="checkbox" id="ESL" name="ESL" value="ESL">
+  <label for="ESL">ESL</label><br>
+  <input type="checkbox" id="Special Needs" name="Special Needs" value="Special Needs">
+  <label for="Special Needs">Special Needs</label><br>
+
+  {% endif %}
+
+  <button class="btn btn-outline-dark" type="submit">Done</button>
+
+</form>
+
+{% endblock %}

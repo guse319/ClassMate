@@ -1,0 +1,36 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+
+
+<form method="POST">
+  {% csrf_token %}
+  <p>
+    <label for="name">Name:</label>
+    <input type="text" name="name" autocomplete="name" required id="name">
+  </p>
+  <p>
+    <label for="id_username">Email:</label>
+    <input type="text" name="username" maxlength="150" autocapitalize="none" autocomplete="username" autofocus required id="id_username">
+    <select name="school">
+      {% for school in schools %}
+      <option value="{{ school }}">{{ school }}</option>
+      {% endfor %}
+    </select>
+  </p>
+  <p>
+    <label for="date_of_birth">Date of birth:</label>
+    <input type="date" name="date_of_birth" autocomplete="date_of_birth" required id="date_of_birth">
+  </p>
+  <p>
+    <label for="id_password1">Password:</label>
+    <input type="password" name="password1" autocomplete="new-password" required id="id_password1">
+  </p>
+  <p>
+    <label for="id_password2">Confirm Password:</label>
+    <input type="password" name="password2" autocomplete="new-password" required id="id_password2">
+  </p>
+  <p style="color: red">{{ error }}</p>
+  <button class="btn btn-outline-dark" type="submit">Sign Up</button>
+</form>
+{% endblock %}

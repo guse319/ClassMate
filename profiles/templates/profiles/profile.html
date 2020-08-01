@@ -1,0 +1,26 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+
+{{ person.name }}
+<br>
+{{ person.email }}
+<br>
+{% if person.type == 'tutor' %}
+{{ person.tutorprofile.school }}
+<br>
+{{ person.tutorprofile.subjects }}
+{% endif %}
+{% if person.type == 'teacher' %}
+{{ person.teacherprofile.school }}
+<br>
+{{ person.teacherprofile.subjects }}
+{% endif %}
+{% if person.type == 'student' %}
+{{ person.studentprofile.school }}
+{% endif %}
+{% if person.type == 'parent' %}
+{{ person.parentprofile.school }}
+{% endif %}
+
+{% endblock %}

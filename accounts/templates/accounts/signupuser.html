@@ -1,0 +1,22 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+
+<h1>Welcome to ClassMate!</h1>
+
+<h4>I am a:</h4>
+
+<a href="{% url 'accounts:tutor' %}">
+  <button class="btn btn-outline-dark">Tutor</button>
+</a>
+<a href="{% url 'accounts:teacher' %}">
+  <button class="btn btn-outline-dark">Teacher</button>
+</a>
+<a href="{% url 'accounts:student' %}">
+  <button class="btn btn-outline-dark">Student</button>
+</a>
+<a href="{% url 'accounts:parent' %}">
+  <button class="btn btn-outline-dark">Parent</button>
+</a>
+
+{% endblock %}

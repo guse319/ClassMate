@@ -1,0 +1,23 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+{% if not user.is_authenticated %}
+<h1>Welcome to ClassMate</h1>
+<br>
+<h5>If it's your first time here, read on for some helpful tips to use this site.</h5>
+<p class="col-9">
+  The inspiration for the ClassMate tool is to lend a helping hand to K12 teachers, students, and parents
+  in tackling COVID-19 learning. Our youth deserve the best education we can give them, pandemic or not.
+</p>
+<p class="col-9">
+  Teachers, students, and parents acrossed the nation have voiced their concerns of being underequipped,
+  underprepared, and understaffed for efficient online learning. Parents who are forced to school their
+  children at home often cannot even afford the time!
+</p>
+<p class="col-9">
+  Through ClassMate, university students are invited to volunteer their time to tutor and supplement the
+  education of K12 students via online interation both with the students themselves and their teachers.
+
+</p>
+{% endif %}
+{% endblock %}
