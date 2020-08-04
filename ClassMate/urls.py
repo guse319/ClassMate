@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
     path('profile/', include('profiles.urls')),
+    url(r"^messages/", include("pinax.messages.urls", namespace="pinax_messages")),
 ]

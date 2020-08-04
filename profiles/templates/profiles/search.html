@@ -1,0 +1,25 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+
+<form method="POST">
+  {% csrf_token %}
+  <h1>Search</h1>
+  <h3>Use this tool to find a tutor that fits your needs!</h3>
+  <br>
+  <h5>What subjects would you like to find tutors for? To select multiple, use ctrl-click on windows or cmd-click on mac.</h5>
+  <select name="subjects" multiple required>
+    {% for subject in subjects %}
+    <option value="{{ subject }}">{{ subject }}</option>
+    {% endfor %}
+  </select>
+  <br><br>
+  <h5>Do you need any of the following accommodations to be met?</h5>
+  <input type="checkbox" id="ESL" name="accommodations" value="ESL">
+  <label for="ESL">ESL</label><br>
+  <input type="checkbox" id="Special Needs" name="accommodations" value="Special Needs">
+  <label for="Special Needs">Special Needs</label><br>
+  <br>
+  <button class="btn btn-outline-dark" type="submit">Search</button>
+</form>
+{% endblock %}

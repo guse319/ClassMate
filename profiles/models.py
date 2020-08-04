@@ -46,10 +46,9 @@ class TutorProfile(models.Model):
         default='',
     )
 
-    clients = models.CharField(
+    clients = models.IntegerField(
         verbose_name='clients',
-        max_length=50,
-        default='',
+        default=0,
     )
 
     subjects = models.TextField(
@@ -64,10 +63,9 @@ class TutorProfile(models.Model):
         default='',
     )
 
-    accommodations = models.CharField(
+    accommodations = models.IntegerField(
         verbose_name='accommodations',
-        max_length=50,
-        default='',
+        default=0,
     )
 
     def __str__(self):

@@ -39,3 +39,16 @@ subjects = [
     'Physics',
     'Science - Elementary',
 ]
+
+queries = [
+    'clients',
+    'subjects',
+    'accommodations',
+]
+
+def common(l1, l2):
+    for i in l1:
+        for j in l2:
+            if i == j:
+                return True
+    return False

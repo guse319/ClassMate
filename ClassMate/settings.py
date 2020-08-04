@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts.apps.AccountsConfig',
     'profiles.apps.ProfilesConfig',
-    'main'
+    'main',
+    'pinax.messages',
 ]
 
 MIDDLEWARE = [
